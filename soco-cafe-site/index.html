@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>soco cafe | 東麻布・麻布十番のコーヒースタンド</title>
+<meta name="description" content="麻布十番駅6番出口から徒歩10秒。11:00-15:00だけ開く、紙巻きタバコが吸えるコーヒースタンド soco cafe。ランチ後の一杯に、PC作業の合間に。">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf8f4;
+    --paper-dim: #f2efe8;
+    --ink: #211e1a;
+    --ink-soft: #4a453e;
+    --coffee: #6f4e37;
+    --line: #ddd8cd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(250, 248, 244, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .nav .brand {
+    font-size: 1.15rem;
+    text-decoration: none;
+  }
+
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+
+  .nav a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  .nav a:hover { color: var(--coffee); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%);
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(33,30,26,0.15) 0%, rgba(33,30,26,0.05) 40%, rgba(33,30,26,0.75) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    color: #faf8f4;
+    padding: 0 28px 64px;
+    width: 100%;
+  }
+
+  .hero-content .wrap { padding: 0; }
+
+  .hero-content .en {
+    font-family: "Shippori Mincho", serif;
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    line-height: 1.1;
+  }
+
+  .hero-content p {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    max-width: 30em;
+    color: #ece7dd;
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .heading {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .heading h2 {
+    font-size: 1.5rem;
+    white-space: nowrap;
+  }
+
+  .heading .rule {
+    height: 1px;
+    background: var(--line);
+    width: 100%;
+  }
+
+  .lead {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 34em;
+  }
+
+  .lead + .lead { margin-top: 1.2em; }
+
+  /* ---------- About / features ---------- */
+  .features {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .feature {
+    border-top: 1px solid var(--ink);
+    padding-top: 16px;
+  }
+
+  .feature h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Menu ---------- */
+  .menu-tier {
+    margin-bottom: 40px;
+  }
+
+  .menu-tier:last-child { margin-bottom: 0; }
+
+  .menu-tier .price-tag {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.15rem;
+    color: var(--coffee);
+    margin-bottom: 14px;
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    gap: 16px;
+  }
+
+  .menu-item:last-child { border-bottom: none; }
+
+  .menu-item .name {
+    font-size: 0.98rem;
+  }
+
+  .menu-item .sub {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .menu-note {
+    margin-top: 28px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Gallery (slider) ---------- */
+  .slider {
+    position: relative;
+    margin-top: 44px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--paper-dim);
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.45s ease;
+  }
+
+  .slider-track figure {
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  .slider-track img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(250, 248, 244, 0.9);
+    color: var(--ink);
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-btn:hover { background: var(--paper); }
+
+  .slider-btn.prev { left: 14px; }
+  .slider-btn.next { right: 14px; }
+
+  .slider-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .slider-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(250, 248, 244, 0.55);
+    cursor: pointer;
+  }
+
+  .slider-dots button.active { background: var(--paper); }
+
+  /* ---------- Access ---------- */
+  .access-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .info-row dt {
+    flex: 0 0 88px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .info-row dd {
+    font-size: 0.95rem;
+  }
+
+  .info-row a { text-decoration: underline; text-underline-offset: 3px; }
+
+  .map-frame {
+    border: 1px solid var(--line);
+    filter: grayscale(35%) contrast(1.02);
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    display: block;
+  }
+
+  .insta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 0 56px;
+    text-align: center;
+  }
+
+  footer .brand {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 640px) {
+    .nav ul { gap: 18px; }
+    section { padding: 72px 0; }
+    .features { grid-template-columns: 1fr; gap: 32px; }
+    .slider-track img { aspect-ratio: 1/1; }
+    .slider-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+    .heading h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">soco cafe</a>
+    <ul>
+      <li><a href="#menu">menu</a></li>
+      <li><a href="#gallery">gallery</a></li>
+      <li><a href="#access">access</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id="top" class="hero">
+  <img src="images/photo-3.jpg" alt="soco cafe 店内、落書きの残る壁とソファ席">
+  <div class="hero-content">
+    <div class="wrap">
+      <h1 class="en">soco cafe</h1>
+      <p>部室のような、あなただけの秘密基地。</p>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="heading">
+      <h2>about</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="lead">ランチを終えて、少し腰を落ち着けたい人へ。<br>
+    パソコンを開いて、黙々と手を動かしたい人へ。<br>
+    友人と、ゆっくり話を楽しみたい方へ。</p>
+    <p class="lead">飾らない空気の中で、肩の力を抜いて過ごせる場所でありたいと思っています。</p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>紙巻きタバコ、吸えます</h3>
+        <p>麻布十番では珍しい、珈琲とタバコを一緒に楽しめる時間。</p>
+      </div>
+      <div class="feature">
+        <h3>部室のような安心感</h3>
+        <p>気取らない内装と適度な雑多さで、長居しても疲れない空気をつくっています。</p>
+      </div>
+      <div class="feature">
+        <h3>電源・Wi-Fi完備</h3>
+        <p>コンセントも高速Wi-Fiも用意しています。作業がひと段落つくまで、心置きなく。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="heading">
+      <h2>menu</h2>
+      <div class="rule"></div>
+    </div>
+    <div style="margin-top: 44px;">
+      <div class="menu-tier">
+        <div class="price-tag">¥500</div>
+        <div class="menu-item"><span class="name">エスプレッソ</span></div>
+        <div class="menu-item"><span class="name">ドリップコーヒー<span class="sub">アイス・ホット</span></span></div>
+      </div>
+
+      <div class="menu-tier">
+        <div class="price-tag">¥600</div>
+        <div class="menu-item"><span class="name">カフェラテ・トニック</span></div>
+        <div class="menu-item"><span class="name">アイスアメリカーノ</span></div>
+      </div>
+
+      <div class="menu-tier">
+        <div class="price-tag">¥1,000</div>
+        <div class="menu-item"><span class="name">カヌレセット<span class="sub">ドリンク + カヌレ2個</span></span></div>
+        <div class="menu-item"><span class="name">クロワッサンセット<span class="sub">ドリンク + クロワッサンサンド1つ</span></span></div>
+      </div>
+
+      <div class="menu-tier">
+        <div class="price-tag">¥1,500~</div>
+        <div class="menu-item"><span class="name">シーシャ<span class="sub">滞在予定時間に合わせてお作りします</span></span></div>
+      </div>
+    </div>
+
+    <p class="menu-note">価格はすべて税込です。</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="heading">
+      <h2>gallery</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="slider" id="gallerySlider">
+      <div class="slider-track">
+        <figure><img src="images/photo-1.jpg" alt="soco cafe バーカウンター"></figure>
+        <figure><img src="images/photo-2.jpg" alt="soco cafe ソファ席とカウンター"></figure>
+        <figure><img src="images/photo-3.jpg" alt="soco cafe 落書きの残る壁とソファ席"></figure>
+        <figure><img src="images/photo-4.jpg" alt="soco cafe カウンターとロッカースペース"></figure>
+        <figure><img src="images/photo-5.jpg" alt="soco cafe カウンター席の眺め"></figure>
+      </div>
+      <button class="slider-btn prev" aria-label="前の写真">‹</button>
+      <button class="slider-btn next" aria-label="次の写真">›</button>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="heading">
+      <h2>access</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="access-grid">
+      <dl>
+        <div class="info-row">
+          <dt>住所</dt>
+          <dd>〒106-0044<br>東京都港区東麻布3-8-9 東麻布ビル3F</dd>
+        </div>
+        <div class="info-row">
+          <dt>アクセス</dt>
+          <dd>麻布十番駅 6番出口より徒歩10秒</dd>
+        </div>
+        <div class="info-row">
+          <dt>営業時間</dt>
+          <dd>11:00 - 15:00(不定休)</dd>
+        </div>
+        <div class="info-row">
+          <dt>電話</dt>
+          <dd><a href="tel:0364412014">03-6441-2014</a></dd>
+        </div>
+      </dl>
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=35.6563978,139.7375205&z=17&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="soco cafe 地図"></iframe>
+      </div>
+    </div>
+
+    <a class="insta-link" href="https://www.instagram.com/soco.cafe.azabu" target="_blank" rel="noopener">
+      @soco.cafe.azabu
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">soco cafe</span>
+  <p>東京都港区東麻布3-8-9 東麻布ビル3F</p>
+</footer>
+
+<script>
+  (function () {
+    const slider = document.getElementById('gallerySlider');
+    if (!slider) return;
+    const track = slider.querySelector('.slider-track');
+    const slides = Array.from(track.children);
+    const dotsWrap = slider.querySelector('.slider-dots');
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', (i + 1) + '枚目を表示');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+  })();
+</script>
+</body>
+</html>
